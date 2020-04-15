@@ -1,0 +1,8 @@
+POST http://localhost:8088/file/image/upload
+Content-Type: multipart/form-data;boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file";filename="pikaqiu.jpg"
+
+< ./pickaqiu.jpg
+###

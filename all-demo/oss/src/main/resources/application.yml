@@ -1,0 +1,7 @@
+server:
+  port: 8088
+minio:
+  endpoint: http://localhost:9000
+  bucketName: dev
+  accessKey: juliuming
+  secretKey: 2162520Pt

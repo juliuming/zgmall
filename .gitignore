@@ -1,0 +1,3 @@
+# Project exclude paths
+/all-demo/oss/target/
+/all-demo/redis/target/
