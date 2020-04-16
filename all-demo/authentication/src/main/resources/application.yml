@@ -1,0 +1,13 @@
+server:
+  port: 8088
+
+security:
+  ignored:
+    urls:
+      - /register
+      - /register/**
+      - /login
+      - /index
+      - /static/**
+      - /**/*.*
+      - /webjars/**
