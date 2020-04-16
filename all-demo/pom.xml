@@ -12,6 +12,7 @@
     <modules>
         <module>oss</module>
         <module>redis</module>
+        <module>jwt</module>
     </modules>
     <artifactId>all-demo</artifactId>
 

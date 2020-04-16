@@ -1,0 +1,3 @@
+token:
+  secretKey: GuessWhatTheCodeIs
+  expireSec: 3600
