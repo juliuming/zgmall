@@ -25,7 +25,7 @@ public class ResponseResult {
         this.data = data;
     }
 
-    public ResponseResult success(Object data){
+    public static ResponseResult success(Object data){
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(),
                 data);
     }

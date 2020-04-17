@@ -1,6 +1,6 @@
-package club.banyuan.demo.jwt.service.impl.impl;
+package club.banyuan.demo.jwt.service.impl;
 
-import club.banyuan.demo.jwt.service.impl.JwtService;
+import club.banyuan.demo.jwt.service.JwtService;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import java.util.Map;
 @Service
 public class JwtServiceImpl implements JwtService {
     // Secret key
-    @Value("${token.secretKe}")
+    @Value("${token.secretKey}")
     String SECRETKEY;
 
     // Expire time
-    @Value("${token.expireSe}")
+    @Value("${token.expireSec}")
     int EXPIRESEC;
 
     /**

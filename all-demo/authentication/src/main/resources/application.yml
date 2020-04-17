@@ -4,10 +4,12 @@ server:
 security:
   ignored:
     urls:
-      - /register
+      - /admin/login
       - /register/**
       - /login
       - /index
       - /static/**
-      - /**/*.*
       - /webjars/**
+token:
+  secretKey: GuessWhatTheCodeIs
+  expireSec: 3600

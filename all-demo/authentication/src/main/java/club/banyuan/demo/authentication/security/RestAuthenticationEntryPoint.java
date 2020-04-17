@@ -19,6 +19,5 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         httpServletResponse.setCharacterEncoding("utf-8");
         httpServletResponse.setContentType("application/json");
         httpServletResponse.getWriter().println(ResponseResult.forbidden());
-
     }
 }

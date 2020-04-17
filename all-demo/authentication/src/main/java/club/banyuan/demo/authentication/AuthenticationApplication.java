@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "club.banyuan.demo")
 public class AuthenticationApplication {
     public static void main(String[] args) {
         ApplicationContext context=SpringApplication.run(AuthenticationApplication.class);

@@ -1,7 +1,6 @@
 package club.banyuan.demo.authentication.security;
 
-import club.banyuan.demo.authentication.config.IgnoreUrlConfig;
-import club.banyuan.demo.jwt.service.impl.JwtService;
+import club.banyuan.demo.jwt.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,7 +22,7 @@ public class JwtAuthenticationFilter extends HttpFilter {
 
     @Override
     public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-        String header = request.getHeader("Authentication");
+        String header = request.getHeader("Authorization");
         if (header != null && header.startsWith("bearer")) {
             String token = header.substring("bearer".length());
             if (jwtService.isTokenValid(token)) {

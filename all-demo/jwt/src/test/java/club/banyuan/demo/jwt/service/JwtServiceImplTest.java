@@ -1,6 +1,6 @@
-package club.banyuan.demo.jwt.service.impl;
+package club.banyuan.demo.jwt.service;
 
-import club.banyuan.demo.jwt.service.impl.impl.JwtServiceImpl;
+import club.banyuan.demo.jwt.service.impl.JwtServiceImpl;
 import io.jsonwebtoken.Claims;
 import org.junit.Before;
 import org.junit.Test;
