@@ -21,5 +21,8 @@ public interface JwtService {
 
     Boolean isExpired(String token);
 
+    //To verify if the token is valid
+    Boolean isTokenValid(String token);
+
     String refreshExpire(String token);
 }

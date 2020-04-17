@@ -123,6 +123,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     //To verify if the token is valid
+    @Override
     public Boolean isTokenValid(String token) {
         try {
             return !isExpired(token);
