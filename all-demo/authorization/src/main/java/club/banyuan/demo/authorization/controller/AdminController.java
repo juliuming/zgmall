@@ -18,7 +18,11 @@ public class AdminController {
     @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
     @ResponseBody
     public ResponseResult login(@RequestBody AdminLoginReq adminLoginReq) {
-        return ResponseResult.success(adminService.login(adminLoginReq));
+        try {
+            return ResponseResult.success(adminService.login(adminLoginReq));
+        }catch (RuntimeException e){
+            return ResponseResult.forbidden();
+        }
     }
 
     @RequestMapping(value = "/admin/auth", method = RequestMethod.GET)
