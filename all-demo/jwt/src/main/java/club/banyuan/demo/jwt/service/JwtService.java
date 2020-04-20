@@ -3,11 +3,12 @@ package club.banyuan.demo.jwt.service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwt;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.Map;
 
-@Repository
+@Service
 public interface JwtService {
     String generate(String subject);
 

@@ -11,12 +11,14 @@
         <module name="redis" />
         <module name="authentication" />
         <module name="oss" />
+        <module name="authorization" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="authentication" options="-parameters" />
+      <module name="authorization" options="-parameters" />
       <module name="jwt" options="-parameters" />
       <module name="oss" options="-parameters" />
       <module name="redis" options="-parameters" />
