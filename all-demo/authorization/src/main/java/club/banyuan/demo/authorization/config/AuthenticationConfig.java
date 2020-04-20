@@ -1,5 +1,6 @@
 package club.banyuan.demo.authorization.config;
 
+import club.banyuan.demo.authorization.security.DynamicResourceFilter;
 import club.banyuan.demo.authorization.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -53,6 +54,9 @@ public class AuthenticationConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         //FilterSecurityInterceptor
+        DynamicResourceFilter dynamicResourceFilter = new DynamicResourceFilter();
+        beanFactory.autowireBean(dynamicResourceFilter);
+        http.addFilterBefore(dynamicResourceFilter, FilterSecurityInterceptor.class);
     }
 
     @Bean
