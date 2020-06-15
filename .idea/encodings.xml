@@ -8,5 +8,7 @@
     <file url="file://$PROJECT_DIR$/all-demo/jwt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/all-demo/oss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/all-demo/redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/all-demo/zgmall-integration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zgmall-interation" charset="UTF-8" />
   </component>
 </project>

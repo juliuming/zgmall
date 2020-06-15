@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.mall.integration.dao.UmsAdminDao">
+    <resultMap id="BaseResultMap" type="club.banyuan.mall.integration.model.UmsAdmin">
+        <id column="ums_admin_id" jdbcType="BIGINT" property="id"/>
+        <result column="ums_admin_username" jdbcType="VARCHAR" property="username"/>
+        <result column="ums_admin_password" jdbcType="VARCHAR" property="password"/>
+        <result column="ums_admin_icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="ums_admin_email" jdbcType="VARCHAR" property="email"/>
+        <result column="ums_admin_nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="ums_admin_note" jdbcType="VARCHAR" property="note"/>
+        <result column="ums_admin_create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="ums_admin_login_time" jdbcType="TIMESTAMP" property="loginTime"/>
+        <result column="ums_admin_status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        ums_admin.id as ums_admin_id, ums_admin.username as ums_admin_username, ums_admin.`password` as `ums_admin_password`,
+    ums_admin.icon as ums_admin_icon, ums_admin.email as ums_admin_email, ums_admin.nick_name as ums_admin_nick_name, 
+    ums_admin.note as ums_admin_note, ums_admin.create_time as ums_admin_create_time, 
+    ums_admin.login_time as ums_admin_login_time, ums_admin.`status` as `ums_admin_status`
+    </sql>
+    <select id="selectByExample" parameterType="club.banyuan.mall.integration.model.UmsAdminExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from ums_admin ums_admin
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ums_admin ums_admin
+        where ums_admin.id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        DELETE
+        FROM ums_admin
+        WHERE id = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="club.banyuan.mall.integration.model.UmsAdminExample">
+        delete from ums_admin ums_admin
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="club.banyuan.mall.integration.model.UmsAdmin"
+            useGeneratedKeys="true">
+        INSERT INTO ums_admin (username, `password`, icon,
+                               email, nick_name, note,
+                               create_time, login_time, `status`)
+        VALUES (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR},
+                #{email,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{loginTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="club.banyuan.mall.integration.model.UmsAdmin" useGeneratedKeys="true">
+        insert into ums_admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="icon != null">
+                icon,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="nickName != null">
+                nick_name,
+            </if>
+            <if test="note != null">
+                note,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="loginTime != null">
+                login_time,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="note != null">
+                #{note,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginTime != null">
+                #{loginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="club.banyuan.mall.integration.model.UmsAdminExample"
+            resultType="java.lang.Long">
+        select count(*) from ums_admin ums_admin
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectUmsAdminByUsername" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ums_admin
+        WHERE username = #{userName}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update ums_admin ums_admin
+        <set>
+            <if test="record.id != null">
+                ums_admin.id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.username != null">
+                ums_admin.username = #{record.username,jdbcType=VARCHAR},
+            </if>
+            <if test="record.password != null">
+                ums_admin.`password` = #{record.password,jdbcType=VARCHAR},
+            </if>
+            <if test="record.icon != null">
+                ums_admin.icon = #{record.icon,jdbcType=VARCHAR},
+            </if>
+            <if test="record.email != null">
+                ums_admin.email = #{record.email,jdbcType=VARCHAR},
+            </if>
+            <if test="record.nickName != null">
+                ums_admin.nick_name = #{record.nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.note != null">
+                ums_admin.note = #{record.note,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null">
+                ums_admin.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.loginTime != null">
+                ums_admin.login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.status != null">
+                ums_admin.`status` = #{record.status,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update ums_admin ums_admin
+        set ums_admin.id = #{record.id,jdbcType=BIGINT},
+        ums_admin.username = #{record.username,jdbcType=VARCHAR},
+        ums_admin.`password` = #{record.password,jdbcType=VARCHAR},
+        ums_admin.icon = #{record.icon,jdbcType=VARCHAR},
+        ums_admin.email = #{record.email,jdbcType=VARCHAR},
+        ums_admin.nick_name = #{record.nickName,jdbcType=VARCHAR},
+        ums_admin.note = #{record.note,jdbcType=VARCHAR},
+        ums_admin.create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        ums_admin.login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+        ums_admin.`status` = #{record.status,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="club.banyuan.mall.integration.model.UmsAdmin">
+        update ums_admin
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                icon = #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="note != null">
+                note = #{note,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginTime != null">
+                login_time = #{loginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="club.banyuan.mall.integration.model.UmsAdmin">
+        UPDATE ums_admin
+        SET username    = #{username,jdbcType=VARCHAR},
+            `password`  = #{password,jdbcType=VARCHAR},
+            icon        = #{icon,jdbcType=VARCHAR},
+            email       = #{email,jdbcType=VARCHAR},
+            nick_name   = #{nickName,jdbcType=VARCHAR},
+            note        = #{note,jdbcType=VARCHAR},
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            login_time  = #{loginTime,jdbcType=TIMESTAMP},
+            `status`    = #{status,jdbcType=INTEGER}
+        WHERE id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>
