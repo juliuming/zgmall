@@ -15,17 +15,17 @@ public class ResponseResult {
         this.data = data;
     }
 
-    public ResponseResult(ResponseCode code){
+    public ResponseResult(ResponseCode code) {
         this.code = code.getCode();
         this.message = code.getMessage();
     }
 
-    public ResponseResult(ResponseCode code,Object data){
+    public ResponseResult(ResponseCode code, Object data) {
         this(code);
         this.data = data;
     }
 
-    public static ResponseResult success(Object data){
+    public static ResponseResult success(Object data) {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(),
                 data);
     }
@@ -38,12 +38,28 @@ public class ResponseResult {
         return new ResponseResult(ResponseCode.FORBIDDEN, data);
     }
 
-    public static ResponseResult unauthorized(){
+    public static ResponseResult unauthorized() {
         return new ResponseResult(ResponseCode.FORBIDDEN);
     }
 
-    public static ResponseResult unauthorized(Object data){
-        return new ResponseResult(ResponseCode.FORBIDDEN,data);
+    public static ResponseResult unauthorized(Object data) {
+        return new ResponseResult(ResponseCode.FORBIDDEN, data);
+    }
+
+    public static ResponseResult badRequest() {
+        return new ResponseResult(ResponseCode.BADREQUEST);
+    }
+
+    public static ResponseResult badRequest(Object data) {
+        return new ResponseResult(ResponseCode.BADREQUEST, data);
+    }
+
+    public static ResponseResult serverError() {
+        return new ResponseResult(ResponseCode.SERVERERROR);
+    }
+
+    public static ResponseResult serverError(Object data) {
+        return new ResponseResult(ResponseCode.SERVERERROR,data);
     }
 
     @Override

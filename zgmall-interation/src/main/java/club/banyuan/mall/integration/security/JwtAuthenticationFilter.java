@@ -19,8 +19,6 @@ import java.io.IOException;
 
 public class JwtAuthenticationFilter extends HttpFilter {
     @Autowired
-    private JwtService jwtService;
-    @Autowired
     private AdminService adminService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
@@ -52,6 +50,5 @@ public class JwtAuthenticationFilter extends HttpFilter {
 
     @Override
     public void destroy() {
-
     }
 }

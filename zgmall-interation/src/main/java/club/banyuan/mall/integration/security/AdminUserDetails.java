@@ -22,6 +22,10 @@ public class AdminUserDetails implements UserDetails {
     this.resources = resources;
   }
 
+  public UmsAdmin getUmsAdmin(){
+    return umsAdmin;
+  }
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return resources;
