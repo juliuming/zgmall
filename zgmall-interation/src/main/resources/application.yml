@@ -5,6 +5,7 @@ security:
   ignored:
     urls:
       - /admin/login
+      - /admin/logout
       - /register/**
       - /login
       - /index

@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends HttpFilter {
                     authenticationToken.setDetails(userDetails);
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 }
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
                 LOGGER.warn("认证异常", e);
             }
         }

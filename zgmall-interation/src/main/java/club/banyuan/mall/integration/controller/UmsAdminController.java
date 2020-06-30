@@ -15,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import sun.util.resources.cldr.ml.CalendarData_ml_IN;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class UmsAdminController {
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
+    @PostMapping("/admin/login")
     @ResponseBody
     public ResponseResult login(@RequestBody AdminLoginReq adminLoginReq) {
         try {
@@ -31,6 +32,19 @@ public class UmsAdminController {
         } catch (RuntimeException ex) {
             return ResponseResult.forbidden(ex);
         }
+    }
+
+    @GetMapping("/admin/logout")
+    @ResponseBody
+    public ResponseResult logout(){
+        return ResponseResult.success(true);
+    }
+
+    @PostMapping("/admin/permission/update")
+    @ResponseBody
+    public ResponseResult permissionUpdate(@RequestBody String json){
+        adminService.
+        return null;
     }
 
     @PostMapping(value = "/admin/delete/{id}")
@@ -72,7 +86,7 @@ public class UmsAdminController {
         }
     }
 
-    @RequestMapping(value = "/admin/auth", method = RequestMethod.GET)
+    @PostMapping("/admin/auth")
     @ResponseBody
     public ResponseResult auth() {
         try {

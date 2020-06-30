@@ -19,4 +19,18 @@ Authorization: bearer{{auth_token}}
 GET http://localhost:8088/admin/list?keyWords=管理&pageNum=1&pageSize=5
 Content-Type: application/json
 Authorization: bearer{{auth_token}}
+
+###
+GET http://localhost:8088/admin/logout
+###
+
+###
+POST http://localhost:8088/admin/permission/update
+Content-Type: application/json
+Authorization: bearer{{auth_token}}
+
+{
+  "adminId": 1,
+  "permissionIds": 22
+}
 ###
